@@ -13,3 +13,4 @@ gem 'pg'
 
 # a little console
 gem "tux"
+gem 'hypdf', '~> 1.0.13'
