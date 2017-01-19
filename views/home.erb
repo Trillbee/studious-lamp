@@ -46,21 +46,6 @@
     <input type="file" name="file_2">
     <a type="button" class="btn btn-lg btn-primary" href="https://shielded-shore-33735.herokuapp.com/pdfunite"><span class="glyphicon glyphicon-flash"></span> PDF UNITE 1</a>
 
-    <%= form_tag('/pdfunite', multipart: true) do %>
-
-      <label>PDF file 1</label>
-      <%= file_field_tag :file_1 %>
-
-      <label>PDF file 2</label>
-      <%= file_field_tag :file_2 %>
-
-      <div class="submit-buttons">
-        <%= submit_tag 'Download PDF', class: 'btn btn-primary' %> or
-        <%= submit_tag 'Upload it to S3', class: 'btn' %>
-      </div>
-
-    <% end %>
-
 
   </div>
 </div>
