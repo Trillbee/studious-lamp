@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
 ruby "2.2.0"
 
-gem "sinatra" 
-gem "activerecord" 
+gem "sinatra"
+gem "activerecord"
 gem "sinatra-activerecord"
+
+#added for ActionView so that we can use file_field_tag
+gem 'activeresource'
 
 gem 'pg'
 
