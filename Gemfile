@@ -7,7 +7,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 
 #added for ActionView so that we can use file_field_tag
-gem 'activeresource'
+gem 'rails'
 
 gem 'pg'
 
