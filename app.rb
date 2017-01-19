@@ -51,4 +51,5 @@ def pdfunite
     hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
     redirect_to '/pdfunite', notice: "PDF url: #{hypdf[:url]}"
   end
+
 end
