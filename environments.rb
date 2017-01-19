@@ -14,3 +14,8 @@ configure :production, :development do
    :encoding => 'utf8'
  )
 end
+
+configure :production, :development do
+  HYPDF_USER=023210bd-1a5d-48b2-954a-ba7181feedda
+  HYPDF_PASSWORD=njfF2ToW
+end
