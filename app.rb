@@ -3,10 +3,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
-#added these for file upload
-require 'rails/all'
-require 'action_mailer/railtie'
-require 'action_controller/railtie'
 
 class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
