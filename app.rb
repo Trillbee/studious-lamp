@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
+require 'hypdf'
 
 class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
