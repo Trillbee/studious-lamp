@@ -46,7 +46,7 @@
     <input type="file" name="file_2">
     <a type="button" class="btn btn-lg btn-primary" href="https://shielded-shore-33735.herokuapp.com/pdfunite"><span class="glyphicon glyphicon-flash"></span> PDF UNITE 1</a>
 
-<%= form_tag('/pdfunite', multipart: true) do %>
+<% do %>
   <label>PDF file 1</label>
   <%= file_field_tag :file_1 %>
 
