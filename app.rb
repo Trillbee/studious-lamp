@@ -41,5 +41,3 @@ get "/pdfunite" do
   hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
   send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
 end
-
-end
