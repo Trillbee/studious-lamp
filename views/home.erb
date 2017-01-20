@@ -45,16 +45,16 @@
     <input type="file" name="file_1">
     <input type="file" name="file_2">
     <a type="button" class="btn btn-lg btn-primary" href="https://shielded-shore-33735.herokuapp.com/pdfunite"><span class="glyphicon glyphicon-flash"></span> UNITE!</a>
-
-<form action="/pdfunite" method="GET">
+-->
+<!-- <form action="/pdfunite" method="GET">
   First File: <input type="file" name="file_1">
   <br />
   Second File: <input type="file" name="file_2">
   <br />
-  <input type="submit">
-</form> -->
+  <input type="submit" >
+</form>  -->
 
-
+<%= form_tag('/pdfunite', multipart: true) do %>
 
   <label>PDF file 1</label>
   <%= file_field_tag :file_1 %>
@@ -67,7 +67,7 @@
     <%= submit_tag 'Upload it to S3', class: 'btn' %>
   </div>
 
-
+<% end %>
 
   </div>
 </div>

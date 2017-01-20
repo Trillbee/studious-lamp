@@ -4,6 +4,9 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
 require 'hypdf'
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"
 
 class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
@@ -35,7 +38,7 @@ get "/create" do
   redirect to(dashboard_url)
 end
 
-def pdfunite
+get "/pdfunite" do
   file_1 = params[:file_1]
   file_2 = params[:file_2]
   options = {test: true}
@@ -53,11 +56,3 @@ def pdfunite
     redirect_to '/pdfunite', notice: "PDF url: #{hypdf[:url]}"
   end
 end
-
-# get "/pdfunite" do
-#   file_1 = params[:file_1]
-#   file_2 = params[:file_2]
-#   options = {test: true}
-#   hypdf = HyPDF.pdfunite(file_1, file_2, options)
-#   send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
-# end
