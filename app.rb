@@ -6,7 +6,6 @@ require './environments'
 require 'hypdf'
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "active_resource/railtie"
 
 class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
