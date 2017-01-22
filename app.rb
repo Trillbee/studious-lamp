@@ -9,17 +9,17 @@ class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
 end
 
+class Account < ActiveRecord::Base
+  self.table_name = 'salesforce.account'
+end
+
+class Attachment < ActiveRecord::Base
+  self.table_name = 'salesforce.attachment'
+end
+
 get "/contacts" do
   @contacts = Contact.all
-  erb :index
-end
-
-get "/accounts" do
   @accounts = Account.all
-  erb :index
-end
-
-get "/attachments" do
   @attachments = Attachment.all
   erb :index
 end
@@ -29,17 +29,10 @@ get "/" do
 end
 
 
-class Contact < ActiveRecord::Base
-  self.table_name = 'salesforce.contact'
-end
+# class Contact < ActiveRecord::Base
+#   self.table_name = 'salesforce.contact'
+# end
 
-class Account < ActiveRecord::Base
-  self.table_name = 'salesforce.account'
-end
-
-class Attachment < ActiveRecord::Base
-  self.table_name = 'salesforce.attachment'
-end
 #get "/contacts" do
 #  @contacts = Contact.all
 #  erb :index
@@ -56,6 +49,6 @@ get "/pdfunite" do
   file_1 = params[:file_1]
   file_2 = params[:file_2]
   options = {test: true}
-  hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
+  hypdf = HyPDF.pdfunite(file_1.path, file_2, options)
   send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
 end
