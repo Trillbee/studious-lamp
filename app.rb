@@ -9,9 +9,9 @@ class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
 end
 
-class Account < ActiveRecord::Base
-  self.table_name = 'salesforce.account'
-end
+# class Account < ActiveRecord::Base
+#   self.table_name = 'salesforce.account'
+# end
 
 class Attachment < ActiveRecord::Base
   self.table_name = 'salesforce.attachment'
@@ -19,7 +19,7 @@ end
 
 get "/contacts" do
   @contacts = Contact.all
-  @accounts = Account.all
+  # @accounts = Account.all
   @attachments = Attachment.all
   erb :index
 end
