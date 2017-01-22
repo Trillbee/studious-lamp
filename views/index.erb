@@ -4,14 +4,12 @@
     <tr>
       <th>Name</th>
       <th>Website</th>
-      <th>Created Date</th>
     </tr>
 
     <% @accounts.each do |account| %>
       <tr>
         <td><%= account.name %></td>
         <td><%= account.website %></td>
-        <td><%= account.CreatedDate %></td>
       </tr>
     <% end %>
   </table>
