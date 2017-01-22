@@ -13,7 +13,6 @@ class Attachment < ActiveRecord::Base
 end
 get "/contacts" do
   @contacts = Contact.all
-  #@attachments = Attachment.all
   erb :index
 end
 
