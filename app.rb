@@ -94,8 +94,8 @@ end
 
 post "/pdfunite" do
 
-  file_1 = params[:file_1]
-  file_2 = params[:file_2]
+  file_1 = JSON.parse(params[:file_1].to_json)
+  file_2 = JSON.parse(params[:file_2].to_json)
 
   options = {test: true}
 
