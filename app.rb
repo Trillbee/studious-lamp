@@ -1,4 +1,5 @@
 # app.rb
+require File.expand_path('../boot', __FILE__)
 
 require 'sinatra'
 require 'sinatra/activerecord'
