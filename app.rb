@@ -33,7 +33,7 @@ get "/att" do
 end
 
 get "/" do
-  erb :home
+  erb :form
 end
 
 
@@ -53,33 +53,45 @@ get "/create" do
   redirect to(dashboard_url)
 end
 
-get "/pdfunite" do
-  erb :pdfunite
-end
+post '/save_image' do
 
-get "/unite" do
-  file_1 = params[:file_1]
-  file_2 = params[:file_2]
-  options = {test: true}
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
 
-  if params[:commit] == 'Download PDF'
-    hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
-    send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
-  else
-    options.merge!(
-      bucket: 'agtesthypdf', #'hypdf_test', # NOTE: replace 'hypdf_test' with your backet name
-      key: 'hypdf_test.pdf',
-      public: true
-    )
-    hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
-    redirect_to '/pdfunite', notice: "PDF url: #{hypdf[:url]}"
+  File.open("./public/#{@filename}", 'wb') do |f|
+    f.write(file.read)
   end
+
+  erb :show_image
 end
 
-get "/pdfunite" do
-  file_1 = params[:file_1]
-  file_2 = params[:file_2]
-  options = {test: true}
-  hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
-  send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
-end
+# get "/pdfunite" do
+#   erb :pdfunite
+# end
+#
+# get "/unite" do
+#   file_1 = params[:file_1]
+#   file_2 = params[:file_2]
+#   options = {test: true}
+#
+#   if params[:commit] == 'Download PDF'
+#     hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
+#     send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+#   else
+#     options.merge!(
+#       bucket: 'agtesthypdf', #'hypdf_test', # NOTE: replace 'hypdf_test' with your backet name
+#       key: 'hypdf_test.pdf',
+#       public: true
+#     )
+#     hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
+#     redirect_to '/pdfunite', notice: "PDF url: #{hypdf[:url]}"
+#   end
+# end
+
+# get "/pdfunite" do
+#   file_1 = params[:file_1]
+#   file_2 = params[:file_2]
+#   options = {test: true}
+#   hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
+#   send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+# end
