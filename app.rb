@@ -29,7 +29,7 @@ end
 
 get "/att" do
   #@attachments = Attachment.all
-  @attachments = Attachment.where("contenttype= 'application/pdf'")
+  @attachments = Attachment.where("contenttype= 'application/pdf'").limit(1)
   erb :att
 end
 
