@@ -6,8 +6,47 @@
       SUCCESS!! GO TO:
         https://agtesthypdf.s3.amazonaws.com/
 
-        <%= @f_1 %>
-        <%= @f_2 %>
-    </body>
 
+        <table class="table table-striped table-bordered" title="FILE 1">
+          <tr>
+            <th>Name</th>
+            <th>Parent ID</th>
+            <th>Content Type</th>
+            <th>Created Date</th>
+            <th>Salesforce ID</th>
+          </tr>
+
+          <% @file_1.each do |f1| %>
+            <tr>
+              <td><%= attachment.name %></td>
+              <td><%= attachment.parentid %></td>
+              <td><%= attachment.contenttype %></td>
+              <td><%= attachment.createddate %></td>
+              <td><%= attachment.sfid %></td>
+            </tr>
+          <% end %>
+        </table>
+
+        <table class="table table-striped table-bordered" title="FILE 2">
+          <tr>
+            <th>Name</th>
+            <th>Parent ID</th>
+            <th>Content Type</th>
+            <th>Created Date</th>
+            <th>Salesforce ID</th>
+          </tr>
+
+          <% @file_2.each do |f2| %>
+            <tr>
+              <td><%= attachment.name %></td>
+              <td><%= attachment.parentid %></td>
+              <td><%= attachment.contenttype %></td>
+              <td><%= attachment.createddate %></td>
+              <td><%= attachment.sfid %></td>
+            </tr>
+          <% end %>
+        </table>
+
+
+</body>
 </html>
