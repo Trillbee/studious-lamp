@@ -99,10 +99,17 @@ post "/pdfunite" do
   file_1 = params[:file_1][:tempfile]
   file_2 = params[:file_2][:tempfile]
 
-  options = {test: true}
-
+  options{
+    test: true,
+    bucket: 'agtesthypdf',
+    key: 'hypdf_test.pdf',
+    public: true
+  }
   hypdf = HyPDF.pdfunite(file_1, file_2, options)
+  redirect_to '/pdfunite', notice: "PDF url: #{hypdf[:url]}"
+  # options = {test: true}
+  #
+  # hypdf = HyPDF.pdfunite(file_1, file_2, options)
 
-  send_file(hypdf[:pdf], filename: 'hypdf_test.pdf')
   # send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
 end
