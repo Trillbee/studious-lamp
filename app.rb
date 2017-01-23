@@ -23,6 +23,15 @@ get "/acc" do
   erb :acc
 end
 
+class Attachment < ActiveRecord::Base
+  self.table_name = 'salesforce.attachment'
+end
+
+get "/att" do
+  @attachments = Attachment.all
+  erb :att
+end
+
 get "/" do
   erb :home
 end
