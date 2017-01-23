@@ -29,7 +29,7 @@ end
 
 get "/att" do
   #@attachments = Attachment.all
-  @attachments = Attachment.select('id, body, contenttype').where(contenttype: 'application/pdf')
+  @attachments = Attachment.where("contenttype= 'application/pdf'"")
   erb :att
 end
 
