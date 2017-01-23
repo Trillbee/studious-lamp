@@ -77,7 +77,7 @@ post "/pdfunite" do
 
 end
 
-get "/sfpdfunite" do
+post "/sfpdfunite" do
 
   file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
   file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
