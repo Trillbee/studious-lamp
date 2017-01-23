@@ -93,14 +93,16 @@ end
 # end
 
 get "/pdfunite" do
+
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
+
+  File.open("./public/#{@filename}", 'wb') do |f|
+    f.write(file.read)
+  end
+  
   erb :show_image
 
-  @filename1 = params[:file][:filename]
-  file1 = params[:file][:tempfile]
-
-  File.open("./public/#{@filename1}", 'wb') do |f|
-    f.write(file1.read)
-  end
   # file_1 = params[:file]
   # file_2 = params[:file]
   # options = {test: true}
