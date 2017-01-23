@@ -53,6 +53,10 @@ get "/create" do
   redirect to(dashboard_url)
 end
 
+get "/pdfunite" do
+  erb :pdfunite
+end
+
 get "/nowpdfunite" do
   file_1 = params[:file_1]
   file_2 = params[:file_2]
