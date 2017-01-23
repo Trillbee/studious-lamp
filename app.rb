@@ -94,18 +94,9 @@ end
 
 get "/pdfunite" do
 
-  @filename = params[:file][:filename]
-  file = params[:file][:tempfile]
-
-  File.open("./public/#{@filename}", 'wb') do |f|
-    f.write(file.read)
-  end
-
-  erb :show_image
-
-  # file_1 = params[:file]
-  # file_2 = params[:file]
-  # options = {test: true}
-  # hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
-  # send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+  file_1 = params[:file]
+  file_2 = params[:file]
+  options = {test: true}
+  hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
+  send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
 end
