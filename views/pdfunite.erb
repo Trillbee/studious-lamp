@@ -2,3 +2,16 @@
   HERE WE ARE
   &nbsp;
 </h2>
+
+<%= form_tag({:action => :upload}, :multipart => true) do %>
+  <label>PDF file 1</label>
+  <%= file_field_tag :file_1 %>
+
+  <label>PDF file 2</label>
+  <%= file_field_tag :file_2 %>
+
+  <div class="submit-buttons">
+    <%= submit_tag 'Download PDF', class: 'btn btn-primary' %> or
+    <%= submit_tag 'Upload it to S3', class: 'btn' %>
+  </div>
+<% end %>
