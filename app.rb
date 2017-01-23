@@ -57,7 +57,7 @@ get "/pdfunite" do
   erb :pdfunite
 end
 
-# get "/pdfunite" do
+# get "/unite" do
 #   file_1 = params[:file_1]
 #   file_2 = params[:file_2]
 #   options = {test: true}
@@ -76,10 +76,10 @@ end
 #   end
 # end
 
-# get "/pdfunite" do
-#   file_1 = params[:file_1]
-#   file_2 = params[:file_2]
-#   options = {test: true}
-#   hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
-#   send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
-# end
+get "/pdfunite" do
+  file_1 = params[:file_1]
+  file_2 = params[:file_2]
+  options = {test: true}
+  hypdf = HyPDF.pdfunite(file_1.path, file_2.path, options)
+  send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+end
