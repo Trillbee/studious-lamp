@@ -93,9 +93,9 @@ end
 # end
 
 get "/pdfunite" do
-  
-  file_1 = params[:file][:filename]
-  file_2 = params[:file][:filename]
+
+  file_1 = params[:file]
+  file_2 = params[:file]
   options = {test: true}
   hypdf = HyPDF.pdfunite(file_1, file_2, options)
   send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
