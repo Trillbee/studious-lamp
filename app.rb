@@ -99,7 +99,7 @@ post "/pdfunite" do
   file_1 = params[:file_1][:tempfile]
   file_2 = params[:file_2][:tempfile]
 
-  options{
+  options = {
     test: true,
     bucket: 'agtesthypdf',
     key: 'hypdf_test.pdf',
