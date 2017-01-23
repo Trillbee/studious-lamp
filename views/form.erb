@@ -16,11 +16,14 @@
         <h1>Upload PDF</h1>
 
         <form action="/pdfunite" method="POST" enctype="multipart/form-data">
-            <!-- <input type="file" name="file"> -->
-            <%= file_field_tag :file_1 %>
-            <%= file_field_tag :file_2 %>
+            <input type="file" name="file">
             <input type="submit" value="Upload pdf">
         </form>
     </body>
+
+    <%= form_tag({action: :upload}, multipart: true) do %>
+      <%= file_field_tag 'file_1' %>
+      <%= file_field_tag 'file_2' %>
+    <% end %>
 
 </html>
