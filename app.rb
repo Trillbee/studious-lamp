@@ -94,6 +94,13 @@ end
 
 get "/pdfunite" do
   erb :show_image
+
+  @filename1 = params[:file][:filename]
+  file1 = params[:file][:tempfile]
+
+  File.open("./public/#{@filename1}", 'wb') do |f|
+    f.write(file1.read)
+  end
   # file_1 = params[:file]
   # file_2 = params[:file]
   # options = {test: true}
