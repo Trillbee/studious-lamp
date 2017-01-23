@@ -102,5 +102,8 @@ post "/pdfunite" do
   options = {test: true}
 
   hypdf = HyPDF.pdfunite(file_1, file_2, options)
-  open(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
+  mergedfile = hypdf[:pdf]
+
+  File.open(mergedfile)
+  # send_data(hypdf[:pdf], filename: 'hypdf_test.pdf', type: 'application/pdf')
 end
