@@ -77,13 +77,13 @@ post "/pdfunite" do
 end
 
 post "sfpdfunite" do
-  file_1 = SELECT body FROM salesforce.attachment LIMIT 1
-  file_2 = SELECT body FROM salesforce.attachment LIMIT 1
+  file_1 = Attachment.limit(1)
+  file_2 = Attachment.limit(1)
 
   options = {
     test: true,
     bucket: 'agtesthypdf',
-    key: 'hypdf_test.pdf',
+    key: 'SFhypdf_test.pdf',
     public: true
   }
   hypdf = HyPDF.pdfunite(file_1, file_2, options)
