@@ -18,7 +18,7 @@ class Account < ActiveRecord::Base
   self.table_name = 'salesforce.account'
 end
 
-get "/accounts" do
+get "/acc" do
   @accounts = Account.all
   erb :acc
 end
