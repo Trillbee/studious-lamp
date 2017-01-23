@@ -33,6 +33,10 @@ get "/att" do
 end
 
 get "/" do
+  erb :home
+end
+
+get "/upload_image" do
   erb :form
 end
 
