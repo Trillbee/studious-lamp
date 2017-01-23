@@ -3,7 +3,7 @@
   &nbsp;
 </h2>
 
-<%= form_tag(:multipart => true) do %>
+<%= form_tag({:multipart => true}) do %>
 
   <label>PDF file 1</label>
   <%= file_field_tag :file_1 %>
