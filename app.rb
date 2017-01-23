@@ -77,13 +77,13 @@ post "/pdfunite" do
 
 end
 
-post "/sfpdfunite" do
+get "/sfpdfunite" do
 
   file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
   file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
 
-  @f_1 = params[:file_1][:tempfile]
-  @f_2 = params[:file_1][:tempfile]
+  @f_1 = params[:file_1]
+  @f_2 = params[:file_2]
 
   # options = {
   #   test: true,
