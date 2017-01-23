@@ -1,9 +1,9 @@
 <h2>
-  HERE WE ARE
-  &nbsp;
+HERE
 </h2>
-<
-<%= form_tag '/pdfunite', multipart: true %>
+
+<%= form_tag('/unite', multipart: true) do %>
+
   <label>PDF file 1</label>
   <%= file_field_tag :file_1 %>
 
@@ -14,3 +14,5 @@
     <%= submit_tag 'Download PDF', class: 'btn btn-primary' %> or
     <%= submit_tag 'Upload it to S3', class: 'btn' %>
   </div>
+
+<% end %>
