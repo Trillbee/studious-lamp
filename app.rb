@@ -94,8 +94,8 @@ end
 
 get "/pdfunite" do
 
-  @filename = params[:file_1][:filename]
-  file = params[:file_1][:tempfile]
+  @filename = params[:file][:filename]
+  file = params[:file][:tempfile]
 
   File.open("./public/#{@filename}", 'wb') do |f|
     f.write(file.read)
