@@ -1,6 +1,3 @@
-<h2>
-HERE
-</h2>
 
 <html>
     <head>
@@ -12,6 +9,15 @@ HERE
         <form action="http://itp.nyu.edu/~rsm347/sinatra/file_upload/save_image" method="POST" enctype="multipart/form-data">
             <input type="file" name="file">
             <input type="submit" value="Upload image">
+        </form>
+    </body>
+
+    <body>
+        <h1>Upload PDF</h1>
+
+        <form action="/pdfunite" method="GET" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload pdf">
         </form>
     </body>
 </html>
