@@ -82,7 +82,6 @@ get "/sfpdfunite" do
   @file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
   @file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
 
-
   # options = {
   #   test: true,
   #   bucket: 'agtesthypdf',

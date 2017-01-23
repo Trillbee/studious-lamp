@@ -47,6 +47,11 @@
           <% end %>
         </table>
 
+        <form action="/pdfunite" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file_1" value="<% @file_1 %>">
+            <input type="file" name="file_2" value="<% @file_2 %>">
+            <input type="submit" value="Merge!">
+        </form>
 
 </body>
 </html>
