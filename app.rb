@@ -92,7 +92,7 @@ end
 #   end
 # end
 
-get "/pdfunite" do
+post "/pdfunite" do
 
   file_1 = params[:file]
   file_2 = params[:file]
