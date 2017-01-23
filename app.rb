@@ -29,7 +29,7 @@ end
 
 get "/att" do
   #@attachments = Attachment.all
-  @attachments = Attachment.where("contenttype= 'application/pdf'").limit(1)
+  @attachments = Attachment.where("contenttype= 'application/pdf'")
   erb :att
 end
 
@@ -81,8 +81,8 @@ post "sfpdfunite" do
   #file_1 = Attachment.limit(1)
   #file_2 = Attachment.limit(1)
 
-  file_1 = Attachment.select('id, body, contenttype').where(contenttype: 'application/pdf')
-  file_2 = file_1
+  file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
+  file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
 
   options = {
     test: true,
