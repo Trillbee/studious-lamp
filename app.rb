@@ -79,8 +79,11 @@ end
 
 get "/sfpdfunite" do
 
-  @f_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
-  @f_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
+  file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
+  file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
+
+  @f_1 = params[:file_1][:tempfile]
+  @f_2 = params[:file_1][:tempfile]
 
   # options = {
   #   test: true,
