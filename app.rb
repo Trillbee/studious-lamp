@@ -73,7 +73,7 @@ post "/pdfunite" do
   }
   hypdf = HyPDF.pdfunite(file_1, file_2, options)
 
-  erb :pdfunite
+  erb :form
 
 end
 
