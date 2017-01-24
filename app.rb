@@ -82,13 +82,13 @@ get "/sfpdfunite" do
   @file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
   @file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
 
-  # options = {
-  #   test: true,
-  #   bucket: 'agtesthypdf',
-  #   key: 'SFhypdf_test.pdf',
-  #   public: true
-  # }
-  # hypdf = HyPDF.pdfunite(file_1, file_2, options)
+  options = {
+    test: true,
+    bucket: 'agtesthypdf',
+    key: 'SFhypdf_test.pdf',
+    public: true
+  }
+  hypdf = HyPDF.pdfunite(@file_1, @file_2, options)
 
   erb :pdfunite
 
