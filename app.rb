@@ -83,8 +83,8 @@ get "/sfpdfunite" do
   @file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
 
 
-  file_1 = Base64::encode64(File.read('@file_1'))
-  file_2 = Base64::encode64(File.read('@file_2'))
+  file_1 = Base64::encode64(File.read('Attachment.where("contenttype= 'application/pdf'").limit(1)'))
+  file_2 = Base64::encode64(File.read('Attachment.where("contenttype= 'application/pdf'").limit(1)'))
 
   options = {
     test: true,
