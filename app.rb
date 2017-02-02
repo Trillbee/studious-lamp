@@ -79,8 +79,8 @@ end
 
 get "/sfpdfunite" do
 
-  file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)
-  file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)
+  file_1 = Attachment.select('Body').where("contenttype= 'application/pdf'").limit(1)
+  file_2 = Attachment.select('Body').where("contenttype= 'application/pdf'").limit(1)
   
   print 'printing two file contents'
   print file_1
