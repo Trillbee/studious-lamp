@@ -79,9 +79,11 @@ end
 
 get "/sfpdfunite" do
 
-  @file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
-  @file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
+  file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
+  file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
   
+  print file_1
+  print file_2
   
    options = {
      test: true,
