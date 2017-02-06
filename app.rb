@@ -26,7 +26,6 @@ end
 
 class Attachment < ActiveRecord::Base
   self.table_name = 'salesforce.attachment'
-  attr_accessor :Name, :Body, :ContentType, :ParentId
 end
 
 get "/att" do
@@ -104,7 +103,7 @@ get "/sfpdfunite" do
    
    print merged_adn_encoded_file
    
-   Attachment.create(Name: 'SFhypdf_test.pdf', ContentType: 'application/pdf', ParentId: '00628000008AaUnAAK', Body: merged_adn_encoded_file)
+   Attachment.create(name: 'SFhypdf_test.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: merged_adn_encoded_file)
    
   erb :form
 
