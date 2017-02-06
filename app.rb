@@ -103,6 +103,8 @@ get "/sfpdfunite" do
    
    print merged_adn_encoded_file
    
+   Attachment.create(Name: 'SFhypdf_test.pdf', Body: merged_adn_encoded_file, ContentType: 'application/pdf', ParentId: '00628000008AaUnAAK')
+   
   erb :form
 
 end
