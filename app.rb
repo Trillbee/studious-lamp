@@ -113,7 +113,7 @@ get "/sfpdfunite" do
    
    print merged_adn_encoded_file.inspect
    
-   Attachment.create(name: 'SFhypdf_test.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: merged_adn_encoded_file)
+   Attachment.create(name: 'SFhypdf_test.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
    
   erb :form
 
