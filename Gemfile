@@ -17,6 +17,7 @@ gem 'minitest'
 gem 'psych', '~> 2.0.5'
 
 gem 'activeresource'
+gem 'rubysl-base64', '~> 2.0'
 
 
 group :assets do
