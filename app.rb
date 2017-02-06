@@ -26,7 +26,7 @@ end
 
 class Attachment < ActiveRecord::Base
   self.table_name = 'salesforce.attachment'
-  attr_accessible :Name, :Body, :ContentType, :ParentId
+  attr_accessor :Name, :Body, :ContentType, :ParentId
 end
 
 get "/att" do
