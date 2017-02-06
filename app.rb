@@ -79,17 +79,20 @@ end
 
 get "/sfpdfunite" do
 
-  @file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1)
-  @file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1)
-  #
-  #
-  # options = {
-  #   test: true,
-  #   bucket: 'agtesthypdf',
-  #   key: 'SFhypdf_test.pdf',
-  #   public: true
-  # }
-  # hypdf = HyPDF.pdfunite(file_1, file_1, options)
+  file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
+  file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
+  
+  print 'printing two file contents'
+  # print file_1
+  # print file_2
+  
+   options = {
+     test: true,
+     bucket: 'agtesthypdf',
+     key: 'SFhypdf_test.pdf',
+     public: true
+   }
+   hypdf = HyPDF.pdfunite(file_1, file_2, options)
 
   erb :form
 
