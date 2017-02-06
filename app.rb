@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './environments'
 require 'hypdf'
+require 'base64'
 
 class Contact < ActiveRecord::Base
   self.table_name = 'salesforce.contact'
@@ -79,8 +80,11 @@ end
 
 get "/sfpdfunite" do
 
-  file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
-  file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
+  encoded_file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
+  encoded_file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
+  
+  file1 = Base64.decode64(encoded_file_1)
+  file2 = Base64.decode64(encoded_file_2)
   
   print 'printing two file contents'
   # print file_1
@@ -92,8 +96,11 @@ get "/sfpdfunite" do
      key: 'SFhypdf_test.pdf',
      public: true
    }
-   hypdf = HyPDF.pdfunite(file_1, file_2, options)
-
+   
+   hypdf = HyPDF.pdfunite(file1, file2)
+   
+   merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
+   
   erb :form
 
 end
