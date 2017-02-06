@@ -101,7 +101,7 @@ get "/sfpdfunite" do
    
    merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
    
-   print merged_adn_encoded_file
+   print merged_adn_encoded_file.inspect
    
    Attachment.create(name: 'SFhypdf_test.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: merged_adn_encoded_file)
    
