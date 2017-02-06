@@ -80,8 +80,14 @@ end
 
 get "/sfpdfunite" do
 
-  encoded_file_1 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
-  encoded_file_2 = Attachment.where("contenttype= 'application/pdf'").limit(1).pluck(:Body)[0]
+  encoded_file_1 = Attachment.where("name= '4578405.pdf'").limit(1).pluck(:Body)[0]
+  encoded_file_2 = Attachment.where("name= '2c9toMelbAirport.pdf'").limit(1).pluck(:Body)[0]
+  
+  print encoded_file_1
+  print encoded_file_2
+  
+  print encoded_file_1.inspect
+  print encoded_file_2.inspect
   
   file1 = Base64.decode64(encoded_file_1)
   file2 = Base64.decode64(encoded_file_2)
