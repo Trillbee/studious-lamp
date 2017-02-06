@@ -101,6 +101,8 @@ get "/sfpdfunite" do
    
    merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
    
+   print merged_adn_encoded_file
+   
   erb :form
 
 end
