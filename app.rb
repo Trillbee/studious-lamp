@@ -99,6 +99,10 @@ get "/sfpdfunite" do
    
    hypdf = HyPDF.pdfunite(file1, file2)
    
+   print hypdf
+   
+   print hypdf.inspect
+   
    merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
    
    print merged_adn_encoded_file.inspect
