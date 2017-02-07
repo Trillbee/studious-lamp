@@ -89,8 +89,10 @@ get "/sfpdfunite" do
   # print encoded_file_1.inspect
   # print encoded_file_2.inspect
   
-  file1 = encoded_file_1_hex.scan(/../).map { |x| x.hex.chr }.join
-  file2 = encoded_file_2_hex.scan(/../).map { |x| x.hex.chr }.join
+  # file1 = encoded_file_1_hex.scan(/../).map { |x| x.hex.chr }.join
+  # file2 = encoded_file_2_hex.scan(/../).map { |x| x.hex.chr }.join
+  
+  file1 = encoded_file_1_hex.unpack('A')
   
   #file1 = Base64.decode64(encoded_file_1)
   #file2 = Base64.decode64(encoded_file_2)
