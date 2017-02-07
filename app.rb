@@ -93,7 +93,7 @@ get "/sfpdfunite" do
      public: true
   }
    
-  hypdf = HyPDF.pdfunite(file1, file2)
+  hypdf = HyPDF.pdfunite(file1, file1)
   print hypdf.inspect
 
   hex_data = Base64.encode64(hypdf[:pdf]).unpack('H*').first
