@@ -113,7 +113,7 @@ get "/sfpdfunite" do
      public: true
    }
    
-    hypdf = HyPDF.pdfunite(file1, file2)
+    hypdf = HyPDF.pdfunite(file1, file1)
    
    # print hypdf
    
