@@ -99,7 +99,7 @@ get "/sfpdfunite" do
   
   print 'printing two file contents'
   
-  print file1
+  print file1.inspect
   #print file2
   
    options = {
