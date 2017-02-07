@@ -90,7 +90,7 @@ get "/sfpdfunite" do
   # print encoded_file_2.inspect
   
   file1 = encoded_file_1_hex.scan(/../).map { |x| x.hex }.pack('c*')
-  # file2 = encoded_file_2_hex.scan(/../).map { |x| x.hex.chr }.join
+  file2 = encoded_file_1_hex.scan(/../).map { |x| x.hex }.pack('c*')
   
   # file1 = encoded_file_1_hex.unpack('A')
   
@@ -101,7 +101,8 @@ get "/sfpdfunite" do
   
   # print file1.inspect
   
-  puts file1.inspect
+  # puts file1.inspect
+  # puts file2.inspect
   
   #print file2
   
@@ -112,17 +113,20 @@ get "/sfpdfunite" do
      public: true
    }
    
-   # hypdf = HyPDF.pdfunite(file1, file2)
+    hypdf = HyPDF.pdfunite(file1, file2)
    
    # print hypdf
    
    # print hypdf.inspect
    
+   puts hypdf.inspect
+   
    # merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
    
    # print merged_adn_encoded_file.inspect
    
-   # Attachment.create(name: 'SFhypdf_test1.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
+   Attachment.create(name: 'SFhypdf_test2.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
+   Attachment.create(name: 'SFhypdf_test3.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: Base64.encode64(hypdf[:pdf]))
    
   erb :form
 
