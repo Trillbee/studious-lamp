@@ -99,9 +99,9 @@ get "/sfpdfunite" do
   
   print 'printing two file contents'
   
-  print file1.inspect
+  # print file1.inspect
   
-  puts file1
+  puts file1.inspect
   
   #print file2
   
