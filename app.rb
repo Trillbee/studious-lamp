@@ -80,21 +80,25 @@ end
 
 get "/sfpdfunite" do
 
-  encoded_file_1 = Attachment.where("name= '4578405.pdf'").limit(1).pluck(:Body)[0]
-  encoded_file_2 = Attachment.where("name= '2c9toMelbAirport.pdf'").limit(1).pluck(:Body)[0]
+  encoded_file_1_hex = Attachment.where("name= 'test pdf 1.pdf'").limit(1).pluck(:Body)[0]
+  encoded_file_2_hex = Attachment.where("name= 'test pdf 2.pdf'").limit(1).pluck(:Body)[0]
   
-  print encoded_file_1
-  print encoded_file_2
+  # print encoded_file_1
+  # print encoded_file_2
   
-  print encoded_file_1.inspect
-  print encoded_file_2.inspect
+  # print encoded_file_1.inspect
+  # print encoded_file_2.inspect
   
-  file1 = Base64.decode64(encoded_file_1)
-  file2 = Base64.decode64(encoded_file_2)
+  file1 = encoded_file_1_hex.scan(/../).map { |x| x.hex.chr }.join
+  file2 = encoded_file_2_hex.scan(/../).map { |x| x.hex.chr }.join
+  
+  #file1 = Base64.decode64(encoded_file_1)
+  #file2 = Base64.decode64(encoded_file_2)
   
   print 'printing two file contents'
-  # print file_1
-  # print file_2
+  
+  print file1
+  #print file2
   
    options = {
      test: true,
@@ -103,17 +107,17 @@ get "/sfpdfunite" do
      public: true
    }
    
-   hypdf = HyPDF.pdfunite(file1, file2)
+   # hypdf = HyPDF.pdfunite(file1, file2)
    
-   print hypdf
+   # print hypdf
    
-   print hypdf.inspect
+   # print hypdf.inspect
    
-   merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
+   # merged_adn_encoded_file = Base64.encode64(hypdf[:pdf])
    
-   print merged_adn_encoded_file.inspect
+   # print merged_adn_encoded_file.inspect
    
-   Attachment.create(name: 'SFhypdf_test1.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
+   # Attachment.create(name: 'SFhypdf_test1.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
    
   erb :form
 
