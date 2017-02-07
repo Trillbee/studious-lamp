@@ -90,6 +90,7 @@ get "/sfpdfunite" do
   # print encoded_file_2.inspect
   
   file1 = encoded_file_1_hex.scan(/../).map { |x| x.hex }.pack('c*')
+  file1 = file1.gsub("\u0000", '')
   file2 = encoded_file_2_hex.scan(/../).map { |x| x.hex }.pack('c*')
   
   # file1 = encoded_file_1_hex.unpack('A')
