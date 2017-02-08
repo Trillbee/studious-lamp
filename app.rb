@@ -88,6 +88,10 @@ get "/sfpdfunite" do
   
   print hypdf.inspect
   
+  Attachment.create(name: 'SFhypdf_test_2_8_v1.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: Base64.encode64(hypdf[:pdf]))
+  
+  Attachment.create(name: 'SFhypdf_test_2_8_v2.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
+  
   erb :form
 
 end
