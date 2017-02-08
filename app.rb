@@ -88,9 +88,13 @@ get "/sfpdfunite" do
   
   print hypdf.inspect
   
-  Attachment.create(name: 'SFhypdf_test_2_8_v1.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: Base64.encode64(hypdf[:pdf]))
+  encodedFile = Base64.encode64(hypdf[:pdf])
   
-  Attachment.create(name: 'SFhypdf_test_2_8_v2.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: hypdf[:pdf])
+  witoutEncoding = hypdf[:pdf]
+  
+  Attachment.create(name: 'SFhypdf_test_2_8_v3.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: encodedFile)
+  
+  Attachment.create(name: 'SFhypdf_test_2_8_v4.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: witoutEncoding)
   
   erb :form
 
