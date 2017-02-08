@@ -82,7 +82,9 @@ get "/sfpdfunite" do
 
   file1_base64_string = Attachment.where("name= 'test pdf 1.pdf'").limit(1).pluck(:Body)[0]
   
-  hypdf = HyPDF.pdfunite(file1_base64_string, file1_base64_string)
+  file1 = Base64.decode64(file1_base64_string)
+  
+  hypdf = HyPDF.pdfunite(file1, file1)
   
   print hypdf.inspect
   
