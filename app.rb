@@ -95,9 +95,9 @@ get "/sfpdfunite" do
   
   print hypdf.inspect
   
-  encodedFile = Base64.encode64(hypdf[:pdf])
+  #encodedFile = Base64.encode64(hypdf[:pdf])
   
-  witoutEncoding = hypdf[:pdf]
+  #witoutEncoding = hypdf[:pdf]
   
   #Attachment.create(name: 'SFhypdf_test_2_8_v3.pdf', contenttype: 'application/pdf', parentid: '00628000008AaUnAAK', body: encodedFile)
   
